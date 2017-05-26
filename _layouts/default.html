@@ -8,12 +8,13 @@
 <body>
   <script src="/scripts/master.js"></script>
   {% include nav.html %}
-
-  <div class="container">
-    {% include header.html %}
-  </div>
-  <div class="container">
-    {{ content }}
+  <div class="content-wrapper">
+    <div class="container">
+      <header>
+      {% include header.html %}
+    </header>
+      {{ content }}
+    </div>
   </div>
   <footer>
     {% include footer.html %}

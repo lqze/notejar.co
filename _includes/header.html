@@ -1,4 +1,4 @@
-<header>
+
   {% if page.title == 'home' %}
   <h3 class="header_title">NOTEJAR</h3>
   <h4 class="sub_header"><span>$ </span><span id="typewriter"></span><span id="cursor" class="active__element">_</span></h4>
@@ -7,4 +7,3 @@
   <p class="post-sub-meta"><time>{{ page.date | date: '%Y . %B . %-d' | upcase }}<time><br />By {{ site.author_name }}</p>
     {% endif %}
     <h4 class="post-sub-title">{{ page.subtitle }}</h4>
-</header>
