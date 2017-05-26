@@ -28,7 +28,7 @@ while true; do
 	read -p "y/n?" yn
 	case $yn in
 		# This currently pushes to my directory.
-		[Yy]* ) echo "Pushing changes..."; rsync -av _site/ ezql@notejar.co:/srv/www/notejar.co; echo "Successfully pushed."; break;;
+		[Yy]* ) echo "Pushing changes..."; rsync -av _site/ USER@DOMAIN:/srv/www/DIR; echo "Successfully pushed."; break;;
 		[Nn]* ) echo "\nYou chose not to push. Bye!"; exit;;
 	esac
 done
