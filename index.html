@@ -1,0 +1,17 @@
+---
+layout: default
+type: home
+title: home
+---
+<ul class="blog-list">
+    {% for post in site.posts %}
+    <li class="blog-list">
+        <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y %b %-d' | upcase }}</time></p>
+        <p class="post-link">
+
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}<span class="blog-list_pointer"><</span></a>
+        </p>
+
+    </li>
+    {% endfor %}
+</ul>
