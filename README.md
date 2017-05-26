@@ -1,5 +1,6 @@
 # notejar.co
-Personal Blog created with Jekyll
+Personal Blog created with [Jekyll](https://jekyllrb.com/)
+
 Feel free to use this template if you want, also any code within.
 
 ### push_site.sh
