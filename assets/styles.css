@@ -123,10 +123,39 @@ footer {
   padding-bottom: 1em;
 }
 
-input {
-  border: 1px solid;
+form {
+  display: inline-block;
 }
 
+input, textarea {
+  border: 1px solid;
+  display: block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.container-form {
+  width: inherit;
+  height: 115px;
+}
+.center {
+  text-align: center;
+}
+
+.align-left {
+  float: left;
+  width: 50%;
+  margin-left: 10px;
+}
+
+.align-right {
+  float: right;
+  width: 50%;
+  text-align: left;
+  margin-right: 20px;
+}
 
 /*
 -------------------------------- 'post' css ----------------------
