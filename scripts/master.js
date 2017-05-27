@@ -118,7 +118,7 @@ window.addEventListener('keyup', (e) => {
   pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
   if(pressed.join('').includes(secretCode)) {
     audio.play(); // Damn fine indeed.
-    document.body.style.backgroundImage = "url('assets/img/coop.jpg')";
+    document.body.style.backgroundImage = "url('/assets/img/coop.jpg')";
     pressed.length = 0;
   }
 })
