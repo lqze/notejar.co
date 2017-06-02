@@ -95,14 +95,14 @@ nav a:hover {
   padding: 0;
 }
 
-@media (max-width: 630px) {
+@media (max-width: 641px) {
   .container {
     max-width: 100%;
   }
   nav {
     display: inline;
-    text-align: center;
   }
+  nav > ul { text-align: center; }
   header {
     padding-top: 0;
   }
