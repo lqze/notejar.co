@@ -4,25 +4,36 @@ permalink: /about/
 type: home
 title: About Me
 ---
+<div class="wrapper-narrow">
+  <header class="center">
+    <h3 class="header_title">Hello!</h3>
+    <img class="profile-picture" src="/assets/img/profile.png"></img>
+  </header>
 
-<article>
-<h3 class="header_title">Hello!</h3>
-<p>I'm Caleb, a 23 year old programmer from Western Australia currently living abroad in Budapest. <br /> I love learning languages and travelling. Apart from this, I have a very keen interest in entrepreneurship and professional development. If I'm
-    in your city, let's have a coffee.</p>
-<p><a class="post-link" href="/assets/Resume.pdf"><i>My Resume</i></a></p>
-<h3>Contact Me</h3>
+  <p>I'm Caleb, a 23 year old programmer from Western Australia (currently living abroad in Budapest).
+    <br />I love learning languages, travelling and developing.
+    Apart from this, I have a very keen interest in entrepreneurship and professional development.
+    If I'm in your city, let's have a coffee!
+    <br/>Please feel free to look at <a class="about-link" href="/assets/Resume.pdf">My Resume</a></p>
 
-<!-- Styling required! -->
-<form action="https://formspree.io/calebfetzer@gmail.com"
-      method="POST" id="contactfrm">
-    <input type="text" placeholder="Your name" name="name">
-    <input type="email" placeholder="Your email" name="_replyto">
-    <input type="submit" value="Send">
-</form>
-<textarea name="message" form="contactfrm" placeholder="Your message"></textarea>
+  <div class="center">
+    <h3>Contact Me</h3>
+      <form action="https://formspree.io/calebfetzer@gmail.com"
+            method="POST" id="contactfrm">
+          <textarea name="message" required form="contactfrm" placeholder="Message"></textarea>
+          <input type="email" required="email" placeholder="Email" name="_replyto">
+          <button type="submit" form="contactfrm" value="Send">SEND</button>
+      </form>
 
-<p>I'm happy to answer emails, otherwise some of my code can be seen on <strong><a href="https://github.com/lqze">Github</a></strong> and my professional information is on <strong><a href="">LinkedIn</a></strong>.</p>
+  </div>
 
-<h3>About the site</h3>
-<p>Built using Jekyll. Code available on <strong><a href="https://github.com/lqze">Github</a></strong>.</p>
-</article>
+  <div class="container">
+
+  <p>I'm happy to answer emails, otherwise some of my code can be seen on <a class="about-link" href="https://github.com/lqze">Github</a> and my professional information is on <a class="about-link" href="">LinkedIn</a>.
+   This site was built via Jekyll; the code can be seen on my GitHub.</p>
+  </div>
+</div>
+
+<footer class="relative">
+<p><a class="footer-link" href="http://notejar.co">2017 - notejar.co</a></p>
+</footer>
