@@ -2,29 +2,32 @@
  * Author: Caleb Fetzer
  * Feel free to use and distribute any of the code.
  * Purposefully unminimalised.
-*/
+ */
 
 /* ---- */
 /*
  * Text 'Typewriter' effect function.
  * Influence taken from user "Tachun Lin", Stack Overflow
  * http://stackoverflow.com/questions/22180457/typewriter-effect-for-html-with-javascript
-*/
+ */
 
-const list = ["LANGUAGES",    // List of sentences you want to print to screen.
-            "PROGRAMMING",
-            "SELF DEVELOPMENT",
-            "WILLKOMMEN",
-            "ÜDVÖZÖLJÜK",
-            "PERTH, WESTERN AUSTRALIA",
-            "echo \"I hope you enjoy your stay.\""];
+const list = ["LANGUAGES", // List of sentences you want to print to screen.
+  "PROGRAMMING",
+  "SELF DEVELOPMENT",
+  "WILLKOMMEN",
+  "ÜDVÖZÖLJÜK",
+  "PERTH, WESTERN AUSTRALIA",
+  "echo \"I hope you enjoy your stay.\""
+];
 
-let text = "", i = 0, n = 0;
+let text = "",
+  i = 0,
+  n = 0;
 const cursorBlinkRate = 530; // Default cursor blink rate
 
 // Average Character Per Minute speed is 190 CPM, roughly 3 chars per second.
 // Programmers are a little faster ;)
-let writeSpeed = getRandomInt(100,210);
+let writeSpeed = getRandomInt(100, 210);
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -68,8 +71,13 @@ function animateCursor() {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
-  writeText();
-  animateCursor();
+  // we don't want these functions to try and run if there is no element!
+  if (document.getElementById('typewriter')) {
+    writeText();
+    animateCursor();
+  }
+  //removeHidden();
+  preFrmSubmit();
 });
 
 //
@@ -92,10 +100,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+function preFrmSubmit() {
+// grab our selectors
+  const p = document.getElementById('p-support');
+
+  const contactFrm = document.querySelector('.contact-form');
+  const button = contactFrm.querySelector('button');
+  const msg = contactFrm.querySelector('textarea');
+  const email = contactFrm.querySelector('input');
+// ambiguous and confusing bools.
+  let b = false, c = false;
 
 
+  function enableBtn() {
+    button.removeAttribute("disabled");
+    button.classList.remove("u-disabled");
+  }
 
 
+    msg.addEventListener("keypress", () => {
+      b = true;
+      checkEnable();
+      return b;
+    });
+
+    email.addEventListener("keypress", () => {
+      c = true;
+      checkEnable();
+      return c;
+    });
+
+    function checkEnable() {
+      if (!(b) || !(c)) {
+        p.classList.remove('u-hidden');
+        p.innerHTML = 'Please fill out both of the fields.';
+      } else {
+        enableBtn();
+        p.innerHTML = 'Thank you, I will try get back to you ASAP!';
+      }
+    }
+
+    if (b) {
+      enableBtn();
+    }
+};
 
 
 
@@ -116,7 +164,7 @@ window.addEventListener('keyup', (e) => {
   var audio = new Audio('/assets/damngood.mp3')
   pressed.push(e.key);
   pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-  if(pressed.join('').includes(secretCode)) {
+  if (pressed.join('').includes(secretCode)) {
     audio.play(); // Damn fine indeed.
     document.body.style.backgroundImage = "url('/assets/img/coop.jpg')";
     pressed.length = 0;

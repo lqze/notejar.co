@@ -10,30 +10,29 @@ title: About Me
     <img class="profile-picture" src="/assets/img/profile.png"></img>
   </header>
 
-  <p>I'm Caleb, a 23 year old programmer from Western Australia (currently living abroad in Budapest).
+  <p>I'm Caleb, a 23 year old programmer from Western Australia.
     <br />I love learning languages, travelling and developing.
     Apart from this, I have a very keen interest in entrepreneurship and professional development.
     If I'm in your city, let's have a coffee!
     <br/>Please feel free to look at <a class="about-link" href="/assets/Resume.pdf">My Resume</a></p>
+    <div class="container">
+
+    <p>I'm happy to answer emails, otherwise some of my code can be seen on <a class="about-link" href="https://github.com/lqze">Github</a> and my professional information is on <a class="about-link" href="">LinkedIn</a>.
+     This site was built via Jekyll.</p>
+    </div>
 
   <div class="center">
     <h3>Contact Me</h3>
-      <form action="https://formspree.io/calebfetzer@gmail.com"
-            method="POST" id="contactfrm">
+      <form action="https://getsimpleform.com/messages?form_api_token=55af35748ee931fdec2fb05669892966"
+        method="post" class="contact-form" id="contact-frm">
           <textarea name="message" required form="contactfrm" placeholder="Message"></textarea>
           <input type="email" required="email" placeholder="Email" name="_replyto">
-          <button type="submit" form="contactfrm" value="Send">SEND</button>
+          <button type="submit" id="submit-btn" form="contact-frm" disabled="yes" class="u-disabled" value="Send">SEND</button>
       </form>
+      <p class="u-hidden" id="p-support"></p>
 
   </div>
-
-  <div class="container">
-
-  <p>I'm happy to answer emails, otherwise some of my code can be seen on <a class="about-link" href="https://github.com/lqze">Github</a> and my professional information is on <a class="about-link" href="">LinkedIn</a>.
-   This site was built via Jekyll; the code can be seen on my GitHub.</p>
-  </div>
+  <footer class="relative">
+  <p><a class="footer-link" href="http://notejar.co">2017 - notejar.co</a></p>
+  </footer>
 </div>
-
-<footer class="relative">
-<p><a class="footer-link" href="http://notejar.co">2017 - notejar.co</a></p>
-</footer>
