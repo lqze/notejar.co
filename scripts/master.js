@@ -4,10 +4,9 @@
  * Purposefully unminimalised.
  */
 
-/* ---- */
-/*
+/* ===================================
  * Text 'Typewriter' effect function.
- * Influence taken from user "Tachun Lin", Stack Overflow
+ * Adapted from user "Tachun Lin", Stack Overflow
  * http://stackoverflow.com/questions/22180457/typewriter-effect-for-html-with-javascript
  */
 
@@ -16,6 +15,7 @@ const list = ["LANGUAGES", // List of sentences you want to print to screen.
   "SELF DEVELOPMENT",
   "WILLKOMMEN",
   "ÜDVÖZÖLJÜK",
+  "WELCOME",
   "PERTH, WESTERN AUSTRALIA",
   "echo \"I hope you enjoy your stay.\""
 ];
@@ -48,8 +48,7 @@ function writeText() {
   }
   ++i;
   setTimeout(writeText, writeSpeed);
-
-};
+}
 
 function deleteText() {
   text = text.slice(0, --i);
@@ -61,14 +60,14 @@ function deleteText() {
   }
   // Deleting text is quicker than typing.
   setTimeout(deleteText, 120);
-};
+}
 
 // Repeatedly blinks the cursor icon and
 // simulates a console blinking cursor effect.
 function animateCursor() {
   document.getElementById('cursor').classList.toggle("active__element");
   setTimeout(animateCursor, cursorBlinkRate);
-};
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   // we don't want these functions to try and run if there is no element!
@@ -76,18 +75,17 @@ document.addEventListener("DOMContentLoaded", function() {
     writeText();
     animateCursor();
   }
-  //removeHidden();
   preFrmSubmit();
 });
 
-//
 /* ---- * * * * * * * * * * * * * * * * * * * * * * * * * * * * ---- */
 
 /*
  * This function toggles the active element on the navigation
  * It lets the user know which nav link is active.
- * <<NEEDS REVISION>>
+ * Needs to be revised.
  */
+
 document.addEventListener('DOMContentLoaded', function() {
   if (window.location.href.indexOf("about") != -1) {
     document.getElementById('liabout').classList.add("active");
@@ -100,53 +98,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 function preFrmSubmit() {
-// grab our selectors
+  // grab our selectors
   const p = document.getElementById('p-support');
 
   const contactFrm = document.querySelector('.contact-form');
   const button = contactFrm.querySelector('button');
   const msg = contactFrm.querySelector('textarea');
   const email = contactFrm.querySelector('input');
-// ambiguous and confusing bools.
-  let b = false, c = false;
 
+  let containsMsgTxt = false;
+  let containsEmailTxt = false;
 
   function enableBtn() {
     button.removeAttribute("disabled");
     button.classList.remove("u-disabled");
   }
 
+  msg.addEventListener("keypress", () => {
+    containsMsgTxt = true;
+    checkEnable();
+    return containsMsgTxt;
+  });
 
-    msg.addEventListener("keypress", () => {
-      b = true;
-      checkEnable();
-      return b;
-    });
+  email.addEventListener("keypress", () => {
+    containsEmailTxt = true;
+    checkEnable();
+    return containsEmailTxt;
+  });
 
-    email.addEventListener("keypress", () => {
-      c = true;
-      checkEnable();
-      return c;
-    });
-
-    function checkEnable() {
-      if (!(b) || !(c)) {
-        p.classList.remove('u-hidden');
-        p.innerHTML = 'Please fill out both of the fields.';
-      } else {
-        enableBtn();
-        p.innerHTML = 'Thank you, I will try get back to you ASAP!';
-      }
-    }
-
-    if (b) {
+  function checkEnable() {
+    if (!(containsMsgTxt) || !(containsEmailTxt)) {
+      p.classList.remove('u-hidden');
+      p.innerHTML = 'Please fill out both of the fields.';
+    } else {
       enableBtn();
+      p.innerHTML = 'Thank you, I will try get back to you ASAP!';
     }
-};
+  }
 
-
-
+}
 
 
 
@@ -155,6 +147,7 @@ function preFrmSubmit() {
 
 /*
  * Konami Code..
+ * Welcome back: TWIN PEAKS
  * Hello to all reading this :)
  */
 
@@ -165,7 +158,7 @@ window.addEventListener('keyup', (e) => {
   pressed.push(e.key);
   pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
   if (pressed.join('').includes(secretCode)) {
-    audio.play(); // Damn fine indeed.
+    audio.play(); // Damn fine, indeed.
     document.body.style.backgroundImage = "url('/assets/img/coop.jpg')";
     pressed.length = 0;
   }
