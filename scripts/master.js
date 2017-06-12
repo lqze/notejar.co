@@ -97,7 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
+/*
+ * This function just enables the form once some input is recognised in both fields.
+ *
+ */
 
 function preFrmSubmit() {
   // grab our selectors
@@ -137,7 +140,6 @@ function preFrmSubmit() {
       p.innerHTML = 'Thank you, I will try get back to you ASAP!';
     }
   }
-
 }
 
 
