@@ -108,8 +108,6 @@ nav a:hover {
   }
 }
 
-
-
 .profile-picture {
   height: 20%;
   width: 20%;
@@ -217,7 +215,20 @@ article {
   text-decoration: underline;
 }
 
+.u-hidden {
+  display: none;
+}
 
+.u-disabled {
+  cursor: none;
+  background-color: #e2e2e2;
+  color: white;
+}
+
+.u-disabled:hover {
+  box-shadow: none;
+  cursor: not-allowed;
+}
 
 /**
  * Code formatting
