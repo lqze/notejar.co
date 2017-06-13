@@ -131,10 +131,17 @@ Let's save it, and then restart the nginx service so it takes effect
 sudo service nginx restart
 ```
 
-Now, let's test this by creating a simple index.html file inside your /srv/www/ directory.
+Let's test the server by creating a simple index.html file inside your /srv/www/ directory, and populating with Hello World.
+
+```bash
+$ cd /srv/www/
+$ touch index.html
+$ echo "Hello world!" >> index.html
+```
+
 Get your ip by running the following
 ```bash
-give me ip FUCK
+<<code goes here>>
 ```
 
 Navigate to your website by entering your IP into the address bar. If you have DNS set up, then feel free to use that.
