@@ -230,6 +230,17 @@ article {
   cursor: not-allowed;
 }
 
+.img-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.post-img {
+  max-width: 100%;
+  height: 480px;
+}
+
 /**
  * Code formatting
  */

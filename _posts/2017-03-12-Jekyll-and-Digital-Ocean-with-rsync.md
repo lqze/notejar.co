@@ -54,7 +54,7 @@ Enter 'localhost:4000' in your address bar. Port 4000 is the default port, altho
 
 If you visit `localhost:4000`, you will see your site up and running. Have a play, click around, navigate through the lists and click on the default post, "Welcome to Jekyll!".
 
-![alt-text](/assets/img/posts/jekyll-mainpage.png "Jekyll default template page")
+![alt-text](/assets/img/posts/jekyll-mainpage.png "Jekyll default template page"){: .post-img .img-center}
 
 Here you can see the contents of the post.
 
