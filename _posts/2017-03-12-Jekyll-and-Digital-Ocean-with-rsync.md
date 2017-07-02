@@ -234,8 +234,19 @@ Having a SSH key-pair set up is recommended, as it can be more secure than using
 Okay, let's go back to our Jekyll site directory where we were working in before.
 
 ```bash
-$ touch push_site.sh
 $ vi push_site.sh
+```
+and in our script let's write the following, then save and close.
+```bash
+#!/bin/bash
+echo 'Hey terminal!'
+```
+
+If you've never done bash scripting, then it can be a highly useful tool to help you automate your workflow or any process on your computer.
+
+Let's go ahead and test our little script.
+```bash
+$ sh push_site
 ```
 
 ### Conclusion
