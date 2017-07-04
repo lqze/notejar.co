@@ -174,7 +174,7 @@ Navigate to your website by entering your IP into the address bar.
 
 We don't actually need to install Jekyll on our remote VPS. What we are doing is generating our site and developing it locally, then pushing the site to our /srv/www directory which nginx then serves.
 
-So let's go back to our local working directory. If you are running ssh from the one terminal window, you will need to close the connection, which can be done via `Ctrl+C`.
+So let's go back to our local working directory. If you are running ssh from the one terminal window, you will need to close the connection, which can be done via `Ctrl+D`.
 
 `cd` back to your working directory, and then `cd` into the `_site` folder.
 ```bash
