@@ -10,7 +10,7 @@ title: "Calebs Blog"
 description: "My website. I have a blog and stuff."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: /:year-:month/:title
+permalink: /:year-:month/:title.html
 
 # Author Info
 author_name:        "Caleb Fetzer"
