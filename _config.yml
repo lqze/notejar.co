@@ -10,7 +10,7 @@ title: "Calebs Blog"
 description: "My website. I have a blog and stuff."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: /:title/
+permalink: /:year-:month/:title
 
 # Author Info
 author_name:        "Caleb Fetzer"
@@ -23,4 +23,4 @@ kramdown:
   syntax_highlighter: rouge
 
 # Reading
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "*.sh" ]
+exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "*.sh", "*.lock" ]
