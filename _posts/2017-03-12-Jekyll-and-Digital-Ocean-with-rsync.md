@@ -236,18 +236,80 @@ Okay, let's go back to our Jekyll site directory where we were working in before
 ```bash
 $ vi push_site.sh
 ```
-and in our script let's write the following, then save and close.
+and in our script let's write the following, save and close.
 ```bash
 #!/bin/bash
 echo 'Hey terminal!'
 ```
 
-If you've never done bash scripting, then it can be a highly useful tool to help you automate your workflow or any process on your computer.
+If you've never done bash scripting before, it can be a highly useful tool to help you automate your workflow or any process on your computer.
 
 Let's go ahead and test our little script.
 ```bash
 $ sh push_site
 ```
+
+You should see this in your terminals output: _Hello_ _terminal!_.
+
+Congratulations! You are now a certified Linux System Administrator. Why are you reading this tutorial?
+
+Jokes aside, let's make our script a little more useful.
+
+`cd` into your local working directory for your Jekyll site. We want to be in the root folder, so that we can see all of those nice files and folders Jekyll created for us before.
+
+Let's go ahead and do `touch push.sh`. Feel free to name your script anything.
+
+For the first part, as the script is going to be taking all the data from your _site directory, I suppose we should check to see if there is a directory with the name `_site` in your working path!
+
+```bash
+#!/bin/bash
+# This script pushes your _site contents to your remote web server directory
+# Check for _script folder in current directory.
+if [ ! -d "_site" ]; then
+	echo "WARNING: Missing  _site  directory. Check your current working path!";
+	echo "Now exiting..."
+	exit;
+fi
+```
+
+In fact, the script would fail if without this clause, as `rsync` won't be able to find _site either if it's not in your working path.
+
+For the next step, we will run a check for the user (youser) if they wish to build their site first, and then push, or just push! We will also allow the script to end without pushing, incase you'd like to make a few quick changes first. Note: You may not wish to build your site first, if you recently just did it or have no changes to make, but you ran the script. Just a possible use case.
+
+```bash
+echo
+echo "Do you want to build your site first (jekyll build)?"
+while true; do
+	read -p "y/n?" yn
+	case $yn in
+		[Yy]* ) echo "Building..."; jekyll build; break;;
+		[Nn]* ) echo "Skipping build."; break;;
+	esac
+done
+```
+
+Now comes the `rsync` goodness. Remember the `rsync` command we went through before? Basically we are just putting that into our bash script, under another conditional.
+
+You will need to enter in your host details and remote web server directory for your site. Having an SSH Key/Pair set up here does streamline the process a bit quicker, as `rsync` won't stop you to enter your password.
+
+```bash
+echo
+echo "This will push all changes in _site to your remote VPS directory."
+echo ""
+echo "-------------------- Do you wish to proceed? --------------------"
+while true; do
+	read -p "y/n?" yn
+	case $yn in
+        # Enter in your correct directory and host details here
+		[Yy]* ) echo "Pushing changes..."; rsync -av _site/ USER@DOMAIN:/srv/www/DIR; echo "Successfully pushed."; break;;
+		[Nn]* ) echo "\nYou chose not to push. Bye!"; exit;;
+	esac
+done
+```
+
+And that's it for the script! Have all those pieces in one file named `push.sh` (or whatever you want, so long as .sh suffixes it). Now whenever you make a change to your website, and want to put it online, just save your changes and run your script. Then go take a break, come back and start making more updates!
+
+I hope you enjoyed this part and learnt a little about Bash, too.
 
 ### Conclusion
 
@@ -255,7 +317,7 @@ In summary, we have gone through setting up Jekyll for the first time, installin
 
 I hope you enjoyed the tutorial, and I understand some parts aren't perfect. If you liked/disliked it, send me a message :).
 
-More tutorials will be on their way!
+More tutorials will be on their way soon!
 
 #### Credits
 * [How to set up a simple static website](https://www.digitalocean.com/community/questions/how-do-i-put-up-a-simple-static-website)
