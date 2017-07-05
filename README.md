@@ -13,6 +13,7 @@ the `__site_` directory and send 'em straight to your remote /www/ folder.
 
 
 ### Todo
-* Need to finish Jekyll and Digital Ocean blog post.
-* Update About page.
-* Restyle inline code highlighting
+* ~~Need to finish Jekyll and Digital Ocean blog post.~~
+* ~~Update About page.~~
+* ~~Restyle inline code highlighting~~
+* Write more posts.

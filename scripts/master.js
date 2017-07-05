@@ -14,7 +14,7 @@ const list = ["LANGUAGES", // List of sentences you want to print to screen.
   "PROGRAMMING",
   "SELF DEVELOPMENT",
   "WILLKOMMEN",
-  "ÜDVÖZÖLJÜK",
+  "ÜDVÖZÖLÜNK",
   "WELCOME",
   "PERTH, WESTERN AUSTRALIA",
   "echo \"I hope you enjoy your stay.\""
@@ -27,7 +27,7 @@ const cursorBlinkRate = 530; // Default cursor blink rate
 
 // Average Character Per Minute speed is 190 CPM, roughly 3 chars per second.
 // Programmers are a little faster ;)
-let writeSpeed = getRandomInt(100, 210);
+let writeSpeed = getRandomInt(150, 220);
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -137,9 +137,12 @@ function preFrmSubmit() {
       p.innerHTML = 'Please fill out both of the fields.';
     } else {
       enableBtn();
-      p.innerHTML = 'Thank you, I will try get back to you ASAP!';
     }
   }
+  button.addEventListener("click", () => {
+    p.innerHTML = 'Thank you, I\'ll get back to you soon!.';
+  });
+  
 }
 
 
